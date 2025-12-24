@@ -1,0 +1,6 @@
+{
+  "channel_id": "demo_channel",
+  "title": "Demo Channel",
+  "description": "A toy channel for demonstrating pack building.",
+  "source": "local_manifest"
+}

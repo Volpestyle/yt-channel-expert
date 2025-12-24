@@ -1,0 +1,10 @@
+{
+  "name": "llmhub_server",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "node ./server.js" },
+  "dependencies": {
+    "@volpestyle/llmhub-node": "*",
+    "express": "^4.19.2"
+  }
+}

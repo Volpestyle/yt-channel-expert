@@ -1,0 +1,15 @@
+1
+00:00:00,000 --> 00:00:20,000
+Welcome back. Today we talk about my tools and workflow.
+
+2
+00:00:20,000 --> 00:00:50,000
+I keep a simple setup: a laptop, a note app, and a task manager.
+
+3
+00:05:00,000 --> 00:05:30,000
+Tools section. I use a text editor, git, and a local model for drafts.
+
+4
+00:12:00,000 --> 00:12:30,000
+Workflow section. I batch research, then write, then review with checklists.

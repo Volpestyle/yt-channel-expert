@@ -1,0 +1,14 @@
+sequenceDiagram
+  participant U as User/Caller
+  participant QA as Answerer
+  participant IR as SectionRetriever
+  participant CR as ChunkRetriever
+  participant LLM as Local LLM
+  U->>QA: question
+  QA->>IR: retrieve sections(query)
+  IR-->>QA: top sections
+  QA->>CR: retrieve chunks(query, section_ids)
+  CR-->>QA: top micro-chunks w/ timestamps
+  QA->>LLM: prompt(context=sections+chunks)
+  LLM-->>QA: draft answer
+  QA-->>U: answer + citations

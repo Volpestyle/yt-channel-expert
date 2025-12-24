@@ -1,0 +1,4 @@
+flowchart LR
+  Q[Query] --> S[Search section summaries]
+  S -->|top K sections| C[Search micro-chunks within sections]
+  C --> A[Answer with citations]

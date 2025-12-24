@@ -1,0 +1,7 @@
+{
+  "name": "yt-channel-expert",
+  "private": true,
+  "scripts": {
+    "generate:mermaid": "./scripts/generate_mermaid.sh"
+  }
+}

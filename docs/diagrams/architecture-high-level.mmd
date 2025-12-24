@@ -1,0 +1,23 @@
+flowchart LR
+  subgraph Build["Pack Build (offline or on Mac)"]
+    A[YouTube metadata<br/>or local manifest] --> B[Transcript sources<br/>import / local ASR]
+    B --> C[Normalize + segment]
+    C --> D[Micro-chunks]
+    D --> E[Sections / Chapters]
+    E --> F[Summaries<br/>map-reduce]
+    D --> G[Embeddings]
+    F --> H[Pack Writer]
+    G --> I[Vector Index]
+    I --> H
+    A --> H
+  end
+
+  subgraph Ask["Q&A (offline)"]
+    P[Channel Pack Reader] --> R[Hybrid Retriever]
+    R --> K[Top Sections + Chunks]
+    K --> L[Prompt Assembler]
+    L --> M[Local LLM Backend]
+    M --> N[Answer + citations]
+  end
+
+  H --> P

@@ -1,0 +1,60 @@
+erDiagram
+  CHANNEL ||--o{ VIDEO : has
+  VIDEO ||--o{ TRANSCRIPT_SEGMENT : contains
+  VIDEO ||--o{ MICRO_CHUNK : derived_from
+  VIDEO ||--o{ SECTION : grouped_into
+  SECTION ||--o{ MICRO_CHUNK : includes
+  VIDEO ||--o{ SUMMARY : has
+
+  CHANNEL {
+    text channel_id PK
+    text title
+    text description
+    text source
+    text created_at
+    text last_sync_at
+  }
+
+  VIDEO {
+    text video_id PK
+    text channel_id FK
+    text title
+    text description
+    text published_at
+    int duration_sec
+    text url
+  }
+
+  TRANSCRIPT_SEGMENT {
+    int segment_id PK
+    text video_id FK
+    int start_ms
+    int end_ms
+    text text
+    text speaker
+  }
+
+  SECTION {
+    int section_id PK
+    text video_id FK
+    int start_ms
+    int end_ms
+    text title
+    text summary
+  }
+
+  MICRO_CHUNK {
+    int chunk_id PK
+    text video_id FK
+    int section_id FK
+    int start_ms
+    int end_ms
+    text text
+  }
+
+  SUMMARY {
+    int summary_id PK
+    text video_id FK
+    text kind
+    text text
+  }

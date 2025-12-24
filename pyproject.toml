@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yt-channel-expert"
+version = "0.1.0"
+description = "Local-first YouTube Channel Expert: build offline channel packs + answer questions with local LLM RAG."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "You"}]
+dependencies = [
+  "pydantic>=2.5",
+  "pyyaml>=6.0",
+  "numpy>=1.24",
+  "tqdm>=4.66",
+  "typer>=0.12",
+  "rich>=13.7",
+]
+
+[project.optional-dependencies]
+# Optional: real embeddings
+embeddings = [
+  "sentence-transformers>=2.6.0",
+]
+# Optional: HNSW index for scale
+hnsw = [
+  "hnswlib>=0.8.0",
+]
+# Optional: local LLM backends (choose what you need)
+llama_cpp = [
+  "llama-cpp-python>=0.2.80",
+]
+mlx = [
+  "mlx-lm>=0.22.0; platform_system=='Darwin'",
+]
+dev = [
+  "pytest>=7.4",
+  "ruff>=0.5.0",
+  "mypy>=1.7",
+]
+
+[project.scripts]
+ytce = "yt_channel_expert.cli.main:app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

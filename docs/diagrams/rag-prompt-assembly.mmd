@@ -1,0 +1,8 @@
+flowchart TD
+  A[Retrieved section summaries] --> P[Prompt Context]
+  B[Retrieved micro-chunks w/ timestamps] --> P
+  P --> LLM[Local LLM Generate]
+  LLM --> V{Citations present?}
+  V -- yes --> OUT[Answer + citations]
+  V -- no --> R[Regenerate stricter]
+  R --> OUT

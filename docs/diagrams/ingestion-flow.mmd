@@ -1,0 +1,8 @@
+flowchart TD
+  A[Input folder / API] --> B[Video manifest]
+  B --> C{Transcript present?}
+  C -- yes --> D[Parse VTT/SRT/JSON]
+  C -- no --> E[Optional: local ASR]
+  D --> F[Normalize segments]
+  E --> F
+  F --> G[Store transcript segments]

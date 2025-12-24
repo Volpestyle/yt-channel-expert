@@ -1,0 +1,11 @@
+1
+00:00:00,000 --> 00:00:30,000
+This is a long-form deep dive. We'll cover philosophy and practical steps.
+
+2
+00:20:00,000 --> 00:20:30,000
+A key point: always ground claims in evidence and cite your sources.
+
+3
+01:10:00,000 --> 01:10:30,000
+Later we revisit the same theme and talk about building a retrieval system.
