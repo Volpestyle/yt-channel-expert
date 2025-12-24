@@ -40,6 +40,14 @@ dev = [
   "ruff>=0.5.0",
   "mypy>=1.7",
 ]
+youtube = [
+  "youtube-transcript-api>=0.6.2",
+  "yt-dlp>=2024.7.9",
+]
+whisper = [
+  "faster-whisper>=1.0.3",
+  "openai-whisper>=20231117",
+]
 
 [project.scripts]
 ytce = "yt_channel_expert.cli.main:app"
