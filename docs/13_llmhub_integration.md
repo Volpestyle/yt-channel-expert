@@ -63,6 +63,39 @@ This repo emits messages:
 }
 ```
 
+## In-process Python llmhub (optional)
+
+If you want to avoid running an HTTP server, you can use the local llmhub Python package directly. Set `llm.extra.mode` to `local` and provide provider config under `llm.extra.providers`.
+
+Install the local package (example path):
+
+```bash
+pip install -e /Users/jamesvolpe/web/llmhub/packages/python
+```
+
+Config example:
+
+```json
+{
+  "llm": {
+    "backend": "llmhub",
+    "provider": "openai",
+    "model": "gpt-4o",
+    "temperature": 0.2,
+    "max_new_tokens": 600,
+    "extra": {
+      "mode": "local",
+      "providers": {
+        "openai": {
+          "api_key": "OPENAI_KEY",
+          "base_url": "https://api.openai.com"
+        }
+      }
+    }
+  }
+}
+```
+
 
 ## GenerateOutput
 

@@ -10,6 +10,18 @@ def make_llm(cfg: LLMConfig) -> LLMBackend:
     if cfg.backend == "llmhub":
         if not cfg.provider or not cfg.model:
             raise ValueError("llm.provider and llm.model are required for llmhub backend")
+        mode = str(cfg.extra.get("mode", "http")).lower()
+        if mode in ("local", "python", "inprocess"):
+            from .llmhub_local import LLMHubLocalBackend
+            return LLMHubLocalBackend(
+                provider=cfg.provider,
+                model=cfg.model,
+                temperature=cfg.temperature,
+                top_p=cfg.top_p,
+                max_tokens=cfg.max_new_tokens,
+                extra=cfg.extra,
+            )
+
         base_url = str(cfg.extra.get("base_url", "http://localhost:8787"))
         timeout_s = float(cfg.extra.get("timeout_s", 60))
         verify_tls = bool(cfg.extra.get("verify_tls", True))

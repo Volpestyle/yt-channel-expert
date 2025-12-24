@@ -16,9 +16,23 @@ Config keys (in `llm.extra`):
 - `timeout_s`
 - `verify_tls`
 
+## Optional: in-process Python llmhub
+
+If you have the local `llmhub` Python package installed, you can skip the HTTP server and use it directly:
+
+- Backend: `llmhub` with `llm.extra.mode="local"`
+- Provider config: `llm.extra.providers`
+
+Example install (local path):
+
+```bash
+pip install -e /Users/jamesvolpe/web/llmhub/packages/python
+```
+
 ## Included backends
 
 - `MockLLM` (tests)
 - `LlamaCppBackend` (requires `llama-cpp-python`)
 - `MLXBackend` (requires `mlx-lm`, macOS only)
 - `LLMHubHTTPBackend` (**recommended**) (calls llmhub-node server)
+- `LLMHubLocalBackend` (in-process; requires local `llmhub` package)
